@@ -1,0 +1,255 @@
+<!--
+@license
+Copyright (c) 2016 The GDG Spain Authors. All rights reserved.
+This code may only be used under the MIT style license found at http://gdg.es/LICENSE.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../app-elements/gdgspain-animate-page.html">
+<link rel="import" href="../app-styles.html">
+
+<dom-module id="page-home">
+  <template>
+    <style include="app-styles">
+      :host {
+        display: block;
+      }
+
+      header {
+        @apply --layout-vertical;
+        @apply --layout-center-center;
+
+        height: calc(100vh - 64px);
+        padding: 0 16px;
+
+        text-align: center;
+
+        color: white;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                          url('../../images/topo02.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      h1 {
+        margin: 0;
+
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+      h2 {
+        margin: 1em 0 0;
+
+        font-size: 1em;
+        font-weight: normal;
+      }
+
+      section {
+        padding: calc(var(--margin-size) * 3) var(--margin-size);
+      }
+
+      .section-content {
+        overflow: auto;
+
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      h3 {
+        font-family: 'Roboto Slab', 'Roboto', 'Noto', sans-serif;
+        font-size: 24px;
+      }
+
+      h3:first-child {
+        margin-top: 0;
+      }
+
+      .what-are-the-gdgs {
+        background-color: #ffffff;
+      }
+
+      .section-description {
+        @apply --layout-vertical;
+        @apply --layout-flex;
+      }
+
+      .gdg-logo {
+        @apply --layout-vertical;
+        @apply --layout-center-center;
+
+        margin-top: 30px;
+      }
+
+      .gdg-logo iron-image {
+        --iron-image-width: 100%;
+
+        width: 200px;
+      }
+
+      .footer-media-links {
+        padding: calc(var(--margin-size) * 2) var(--margin-size);
+
+        background-color: var(--gdg-color-blue);
+      }
+
+      .footer-media-links .section-content {
+        @apply --layout-horizontal;
+        @apply --layout-center;
+        @apply --layout-center-justified;
+      }
+
+      .footer-media-links a {
+        margin-right: 30px;
+
+        text-decoration: none;
+
+        color: #ffffff;
+      }
+
+      .footer-media-links a:last-child {
+        margin-right: 0;
+      }
+
+      .footer-media-links a span {
+        display: none;
+
+        font-size: 13px;
+      }
+
+      .footer-bottom {
+        padding: var(--margin-size);
+
+        background-color: #455a64;
+      }
+
+      @media (min-width: 375px) {
+        h1 {
+          font-size: 2.4em;
+        }
+
+        h2 {
+          font-size: 1.2em;
+        }
+      }
+
+      @media (min-width: 625px) {
+        h1 {
+          font-size: 2.8em;
+        }
+
+        h2 {
+          font-size: 1.4em;
+        }
+
+        .section-columns {
+          @apply --layout-horizontal;
+        }
+
+        .gdg-logo {
+          @apply --layout;
+
+          margin-top: 0;
+          margin-left: 30px;
+        }
+      }
+
+      @media (min-width: 730px) {
+        .footer-media-links a span {
+          display: inline-block;
+        }
+      }
+    </style>
+
+    <div id="transformedContent">
+      <header>
+        <h1>TopoDesign - Topografía, Geodesia e Ingeniería</h1>
+        <h2>Nos especializamos en servicios de ingeniería geodesia y topografía, elaboración de proyectos, supervisión en los campos de edificación, habilitaciones urbanas, etc. dirigido a sectores y entidades privadas.</h2>
+      </header>
+
+      <section class="what-are-the-gdgs">
+        <div class="section-content">
+          <h3>CONSULTORÍA TÉCNICA</h3>
+          <div class="section-columns">
+            <div class="section-description">
+              <p>Para <strong>TopoDesign</strong> Nuestra visión es ser una empresa líder en consultoría y ejecución de proyectos de Ingeniería, Geodesia, Topografía, Fotogrametría. Reconocida por su eficiencia, calidad, seguridad y mejora continua.</p>
+            </div>
+            <div class="gdg-logo">
+              <iron-image src="[[importPath]]../../images/LogoTopo02.gif" preload></iron-image>
+            </div>
+          </div>
+          <h3>SERVICIOS</h3>
+          <div class="section-columns">
+            <div class="section-description">
+              TOPOGRAFIA
+              DISEÑO DE INGENIERÍA
+              ESTUDIO DE SUELOS
+              GEODESIA
+              URBANISMO
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <section class="footer-media-links">
+          <div class="section-content">
+            <a href="https://twitter.com"
+                target="_blank"
+                title="Seguir @TopoDesign en Twitter"
+                aria-label="Seguir TopoDesign en Twitter">
+              <iron-icon icon="twitter"></iron-icon>
+              <span>@TopoDesign</span>
+            </a>
+            <a href="https://www.youtube.com/"
+                target="_blank"
+                title="Suscribirse /TopoDesign en YouTube"
+                aria-label="Suscribirse TopoDesign en YouTube">
+              <iron-icon icon="youtube"></iron-icon>
+              <span>/TopoDesign</span>
+            </a>
+            <a href="https://www.facebook.com/"
+                target="_blank"
+                title="Seguir /TopoDesign en Facebook"
+                aria-label="Seguir TopoDesign en Facebook">
+              <iron-icon icon="facebook"></iron-icon>
+              <span>/TopoDesign</span>
+            </a>
+            </div>
+        </section>
+        <section class="footer-bottom">
+
+        </section>
+      </footer>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'page-home',
+
+      properties: {
+        visible: {
+          type: Boolean,
+          observer: '_visibleChanged'
+        }
+      },
+
+      behaviors: [
+        Polymer.GDGSpainAnimatePage
+      ],
+
+      _visibleChanged: function(visible) {
+        if (visible) {
+          this.fire('change-section', {
+            title: 'TopoDesign - Home'
+          });
+        }
+      }
+    });
+  </script>
+</dom-module>

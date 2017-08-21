@@ -1,0 +1,42 @@
+<!--
+@license
+Copyright (c) 2016 The GDG Spain Authors. All rights reserved.
+This code may only be used under the MIT style license found at http://gdg.es/LICENSE.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../app-elements/gdgspain-animate-page.html">
+<link rel="import" href="../app-styles.html">
+
+<dom-module id="page-404">
+  <template>
+    <style include="app-styles">
+      :host {
+        @apply --page-content;
+
+        display: block;
+      }
+
+      h2 {
+        font-size: 1em;
+        font-weight: normal;
+      }
+    </style>
+
+    <h1>Oops! Contenido no encontrado</h1>
+
+    <div id="transformedContent">
+      <h2>Prueba <a href="[[rootPath]]">volver a incio</a></h2>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'page-404',
+
+      behaviors: [
+        Polymer.GDGSpainAnimatePage
+      ]
+    });
+  </script>
+</dom-module>

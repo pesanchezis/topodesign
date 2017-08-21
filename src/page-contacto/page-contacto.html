@@ -1,0 +1,117 @@
+<!--
+@license
+Copyright (c) 2016 The GDG Spain Authors. All rights reserved.
+This code may only be used under the MIT style license found at http://gdg.es/LICENSE.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../app-elements/gdgspain-animate-page.html">
+<link rel="import" href="../app-styles.html">
+
+<dom-module id="page-contacto">
+  <template>
+    <style include="app-styles">
+      :host {
+        @apply --page-content;
+
+        display: block;
+      }
+
+      paper-card {
+        width: 100%;
+        margin-bottom: var(--margin-size);
+
+        --paper-card-actions: {
+          text-align: center;
+        };
+      }
+
+      .generator-input {
+        margin-bottom: 1em;
+      }
+
+      .generator-hint {
+        display: block;
+
+        width: 100%;
+        margin-top: 2em;
+
+        text-align: right;
+
+        font-size: .9em;
+      }
+
+      iron-image {
+        --iron-image-width: 100%;
+      }
+
+      a {
+        display: inline-block;
+
+        text-decoration: none;
+
+        color: inherit;
+
+        /* NOTE: Both values are needed, since some phones require the `transparent` value. */
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+
+    <h1>Contáctenos</h1>
+
+    <div class="description">
+      <p>Puede enviarnos comunicarse con nosotros a través de los siguientes medios:</p>
+    </div>
+
+    <div id="transformedContent">
+      <paper-card heading="Fotografía: Construcción de ...">
+        <iron-image src="[[importPath]]../../images/topo03_02.jpg"></iron-image>
+        <div class="card-actions">
+        </div>
+      </paper-card>
+
+      <paper-card heading="Espacio para mas contenidos">
+        <div class="card-actions">
+          <a href=""
+              target="_blank"
+              tabindex="-1"
+              title=""
+              aria-label="">
+            <paper-button></paper-button>
+          </a>
+         
+        </div>
+      </paper-card>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'page-contacto',
+
+      properties: {
+        visible: {
+          type: Boolean,
+          observer: '_visibleChanged'
+        }
+      },
+
+      behaviors: [
+        Polymer.GDGSpainAnimatePage
+      ],
+
+      _visibleChanged: function(visible) {
+        if (visible) {
+          this.fire('change-section', {
+            title: 'TopoDesign - Contacto'
+          });
+        }
+      }
+    });
+  </script>
+</dom-module>

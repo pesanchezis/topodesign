@@ -1,0 +1,127 @@
+<!--
+@license
+Copyright (c) 2016 The GDG Spain Authors. All rights reserved.
+This code may only be used under the MIT style license found at http://gdg.es/LICENSE.txt
+-->
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>TopoDesign - Topografía, Geodesia e Ingeniería</title>
+    <meta name="description" content="Organización que agrupa a todos los Google Developer Groups de España.">
+
+    <base href="/">
+
+    <link rel="icon" href="images/manifest/favicons/favicon.ico">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#4285f4">
+
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="GDG Spain">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GDG Spain">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#4285f4">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <meta property="og:url" content="">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="TopoDesign">
+    <meta property="og:description" content="Topografía, Geodesia e Ingeniería">
+    <meta property="og:image" content="">
+
+    <script>
+      // Setup Polymer options
+      window.Polymer = {
+        dom: 'shadow',
+        lazyRegister: true
+      };
+
+      window.Polymer.rootPath = '/';
+
+      // Load the webcomponentsjs polyfill if browser does not support native
+      // Web Components
+      (function() {
+        'use strict';
+
+        var onload = function() {
+          // For native Imports, manually fire WebComponentsReady so user code
+          // can use the same code path for native and polyfill'd imports.
+          if (!window.HTMLImports) {
+            document.dispatchEvent(
+              new CustomEvent('WebComponentsReady', { bubbles: true })
+            );
+          }
+        };
+
+        // eslint-disable-next-line no-extra-parens
+        var webComponentsSupported = (
+          'registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')
+        );
+
+        if (!webComponentsSupported) {
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = 'bower_components/webcomponentsjs/webcomponents-lite.min.js';
+          script.onload = onload;
+          document.head.appendChild(script);
+        } else {
+          onload();
+        }
+      })();
+
+      // Load pre-caching Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js', {
+            scope: Polymer.rootPath
+          });
+        });
+      }
+    </script>
+
+    <link rel="import" href="src/app-shell.html">
+
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+
+        background-color: #f4f4f4;
+
+        font-family: 'Roboto', 'Noto', sans-serif;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <app-shell></app-shell>
+
+    <script>
+      /* eslint-disable */
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-71931980-3', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    </script>
+  </body>
+</html>
