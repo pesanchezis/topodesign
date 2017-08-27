@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": "",
   "bugs": {
-    "url": "https://github.com/GDGSpain/gdg.es/issues"
+    "url": ""
   },
   "devDependencies": {
     "del": "^3.0.0",
